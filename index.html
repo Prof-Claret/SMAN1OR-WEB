@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMA N 1 ONANRUNGGU - Website Resmi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('school-bg.jpg');
+            background-size: cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .news-section {
+            background-color: #f8f9fa;
+            padding: 4rem 0;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .nav-tabs .nav-link {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: var(--secondary-color);
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .tab-content {
+            padding: 2rem 0;
+        }
+
+        .card {
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="Logo" height="50">
+                SMA N 1 ONANRUNGGU
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#profil">Profil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#akademik">Akademik</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#fasilitas">Fasilitas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#berita">Berita</a></li>
+                    <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="beranda" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./Assets/pacara2.JPG') no-repeat center center; background-size: cover; min-height: 80vh; display: flex; align-items: center; color: white;">
+        <div class="container text-center">
+            <h1 class="display-4 mb-4">Selamat Datang di SMA N 1 ONANRUNGGU</h1>
+            <p class="lead mb-4">Membentuk Generasi Unggul, Berakhlak Mulia, dan Berwawasan Global</p>
+            <a href="#profil" class="btn btn-primary btn-lg">Pelajari Lebih Lanjut</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5" id="profil">
+        <div class="container">
+            <h2 class="text-center mb-5">Keunggulan Kami</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card text-center">
+                        <i class="fas fa-graduation-cap fa-3x mb-3 text-primary"></i>
+                        <h4>Pendidikan Berkualitas</h4>
+                        <p>Kurikulum terakreditasi dan tim pengajar profesional</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card text-center">
+                        <i class="fas fa-flask fa-3x mb-3 text-primary"></i>
+                        <h4>Fasilitas Modern</h4>
+                        <p>Laboratorium lengkap dan teknologi pembelajaran terkini</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card text-center">
+                        <i class="fas fa-users fa-3x mb-3 text-primary"></i>
+                        <h4>Pengembangan Karakter</h4>
+                        <p>Program pembinaan karakter dan kepemimpinan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profil Section yang baru -->
+    <section class="py-5 bg-light" id="profil-lengkap">
+        <div class="container">
+            <h2 class="text-center mb-5">Profil Sekolah</h2>
+            
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs nav-fill mb-4" id="profilTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="sejarah-tab" data-bs-toggle="tab" data-bs-target="#sejarah" type="button" role="tab">
+                        Sejarah
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="visimisi-tab" data-bs-toggle="tab" data-bs-target="#visimisi" type="button" role="tab">
+                        Visi & Misi
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="struktur-tab" data-bs-toggle="tab" data-bs-target="#struktur" type="button" role="tab">
+                        Struktur Organisasi
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="prestasi-tab" data-bs-toggle="tab" data-bs-target="#prestasi" type="button" role="tab">
+                        Prestasi
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab content -->
+            <div class="tab-content" id="profilTabContent">
+                <!-- Sejarah -->
+                <div class="tab-pane fade show active" id="sejarah" role="tabpanel">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <img src="sejarah-sekolah.jpg" alt="Sejarah Sekolah" class="img-fluid rounded shadow">
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="mb-4">Sejarah SMA N 1 ONANRUNGGU</h3>
+                            <p>SMA N 1 ONANRUNGGU didirikan pada tahun [tahun pendirian] sebagai respons terhadap kebutuhan pendidikan menengah atas di wilayah Onanrunggu, Samosir.</p>
+                            <p>Sejak pendiriannya, sekolah ini telah berkembang menjadi salah satu institusi pendidikan terkemuka di wilayah Samosir, dengan berbagai prestasi akademik dan non-akademik yang membanggakan.</p>
+                            <p>Melalui berbagai periode kepemimpinan, sekolah ini terus mengalami perkembangan baik dari segi infrastruktur maupun kualitas pendidikan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visi & Misi -->
+                <div class="tab-pane fade" id="visimisi" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title text-center mb-4">Visi</h3>
+                                    <p class="card-text">"Menjadi sekolah unggul yang menghasilkan lulusan berkualitas, berkarakter, dan berwawasan global dengan berlandaskan budaya lokal."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title text-center mb-4">Misi</h3>
+                                    <ul class="card-text">
+                                        <li>Menyelenggarakan pendidikan yang berkualitas dan berdaya saing</li>
+                                        <li>Mengembangkan potensi peserta didik secara optimal</li>
+                                        <li>Membentuk karakter peserta didik yang berakhlak mulia</li>
+                                        <li>Mengembangkan pembelajaran berbasis teknologi dan budaya lokal</li>
+                                        <li>Meningkatkan profesionalisme tenaga pendidik dan kependidikan</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Struktur Organisasi -->
+                <div class="tab-pane fade" id="struktur" role="tabpanel">
+                    <div class="text-center mb-4">
+                        <img src="struktur-organisasi.png" alt="Struktur Organisasi" class="img-fluid">
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <img src="kepala-sekolah.jpg" alt="Kepala Sekolah" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+                                    <h5 class="card-title">Manatar Samosir</h5>
+                                    <p class="card-text">Kepala Sekolah</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tambahkan card untuk wakil kepala sekolah dan staff lainnya -->
+                        <div class="row mt-4">
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <img src="kepala-sekolah.jpg" alt="Kepala Sekolah" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+                                        <h5 class="card-title">Manatar Samosir</h5>
+                                        <p class="card-text">Kepala Sekolah</p>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+                <!-- Prestasi -->
+                <div class="tab-pane fade" id="prestasi" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Prestasi Akademik</h4>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Juara 1 Olimpiade Sains Nasional 2023</li>
+                                        <li class="list-group-item">Finalis Kompetisi Robotika Nasional 2022</li>
+                                        <li class="list-group-item">Best Research Award tingkat Provinsi 2023</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Prestasi Non-Akademik</h4>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Juara 2 Festival Seni Tradisional 2023</li>
+                                        <li class="list-group-item">Juara 1 Kompetisi Paduan Suara 2022</li>
+                                        <li class="list-group-item">Medali Emas Kejuaraan Olahraga Provinsi 2023</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news-section" id="berita">
+        <div class="container">
+            <h2 class="text-center mb-5">Berita Terkini</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="news1.jpg" class="card-img-top" alt="Berita 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Prestasi Olimpiade Sains</h5>
+                            <p class="card-text">Siswa kami meraih medali emas dalam Olimpiade Sains Nasional 2023.</p>
+                            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="news2.jpg" class="card-img-top" alt="Berita 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Program Pertukaran Pelajar</h5>
+                            <p class="card-text">Kesempatan belajar di luar negeri melalui program pertukaran pelajar.</p>
+                            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="news3.jpg" class="card-img-top" alt="Berita 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Kegiatan Ekstrakurikuler</h5>
+                            <p class="card-text">Berbagai kegiatan ekstrakurikuler untuk pengembangan bakat siswa.</p>
+                            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5" id="kontak">
+        <div class="container">
+            <h2 class="text-center mb-5">Hubungi Kami</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Nama Lengkap">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Pesan"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                    </form>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Informasi Kontak</h5>
+                            <p><i class="fas fa-map-marker-alt"></i> Jl. Sisingamangaraja, Onanrunggu, Samosir</p>
+                            <p><i class="fas fa-phone"></i> (0622) 123456</p>
+                            <p><i class="fas fa-envelope"></i> info@sman1onanrunggu.sch.id</p>
+                            <div class="social-media mt-4">
+                                <a href="#" class="me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                                <a href="#" class="me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                                <a href="#" class="me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                                <a href="#"><i class="fab fa-youtube fa-2x"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Tentang Kami</h5>
+                    <p>SMA N 1 ONANRUNGGU adalah sekolah menengah atas negeri yang berkomitmen untuk memberikan pendidikan berkualitas dan membentuk karakter siswa yang unggul.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Link Cepat</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#beranda" class="text-white">Beranda</a></li>
+                        <li><a href="#profil" class="text-white">Profil</a></li>
+                        <li><a href="#akademik" class="text-white">Akademik</a></li>
+                        <li><a href="#fasilitas" class="text-white">Fasilitas</a></li>
+                        <li><a href="#berita" class="text-white">Berita</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Jam Operasional</h5>
+                    <p>Senin - Jumat: 07:00 - 15:00</p>
+                    <p>Sabtu: 07:00 - 12:00</p>
+                    <p>Minggu: Tutup</p>
+                </div>
+            </div>
+            <hr class="text-white">
+            <div class="text-center">
+                <p>&copy; 2023 SMA N 1 ONANRUNGGU. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - SMA N 1 ONANRUNGGU</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('school-bg.jpg');
+            background-size: cover;
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .admin-dashboard {
+            display: none;
+            padding: 2rem;
+        }
+
+        .news-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Section -->
+    <div class="login-container" id="loginSection">
+        <div class="login-card">
+            <h2 class="text-center mb-4">Admin Login</h2>
+            <form id="loginForm">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-dashboard" id="adminDashboard">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+            <div class="container">
+                <a class="navbar-brand" href="#">Admin Panel</a>
+                <button class="btn btn-danger" id="logoutBtn">Logout</button>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="news-form">
+                        <h3 class="mb-4">Tambah Berita Baru</h3>
+                        <form id="newsForm">
+                            <div class="mb-3">
+                                <label for="newsTitle" class="form-label">Judul Berita</label>
+                                <input type="text" class="form-control" id="newsTitle" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="newsImage" class="form-label">Gambar Berita</label>
+                                <input type="file" class="form-control" id="newsImage" accept="image/*" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="newsContent" class="form-label">Isi Berita</label>
+                                <textarea class="form-control" id="newsContent" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Publish Berita</button>
+                        </form>
+                    </div>
+
+                    <div class="mt-5">
+                        <h3 class="mb-4">Daftar Berita</h3>
+                        <div id="newsList" class="list-group">
+                            <!-- Daftar berita akan ditampilkan di sini -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Credentials sederhana (dalam praktik nyata, gunakan backend untuk autentikasi)
+        const ADMIN_CREDENTIALS = {
+            username: 'admin',
+            password: 'admin123'
+        };
+
+        // Elements
+        const loginSection = document.getElementById('loginSection');
+        const adminDashboard = document.getElementById('adminDashboard');
+        const loginForm = document.getElementById('loginForm');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const newsForm = document.getElementById('newsForm');
+        const newsList = document.getElementById('newsList');
+
+        // Login handler
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+                loginSection.style.display = 'none';
+                adminDashboard.style.display = 'block';
+                // Simpan status login di sessionStorage
+                sessionStorage.setItem('isLoggedIn', 'true');
+            } else {
+                alert('Username atau password salah!');
+            }
+        });
+
+        // Logout handler
+        logoutBtn.addEventListener('click', () => {
+            loginSection.style.display = 'flex';
+            adminDashboard.style.display = 'none';
+            sessionStorage.removeItem('isLoggedIn');
+        });
+
+        // News form handler
+        newsForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const title = document.getElementById('newsTitle').value;
+            const content = document.getElementById('newsContent').value;
+            const imageFile = document.getElementById('newsImage').files[0];
+
+            // Buat preview berita
+            const newsItem = document.createElement('div');
+            newsItem.className = 'list-group-item';
+            newsItem.innerHTML = `
+                <h5>${title}</h5>
+                <p>${content.substring(0, 100)}...</p>
+                <small class="text-muted">Dipublikasikan pada: ${new Date().toLocaleDateString()}</small>
+                <button class="btn btn-danger btn-sm float-end">Hapus</button>
+            `;
+
+            // Tambahkan ke daftar berita
+            newsList.prepend(newsItem);
+
+            // Reset form
+            newsForm.reset();
+        });
+
+        // Check login status when page loads
+        window.addEventListener('load', () => {
+            if (sessionStorage.getItem('isLoggedIn') === 'true') {
+                loginSection.style.display = 'none';
+                adminDashboard.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

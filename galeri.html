@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri - SMA N 1 ONANRUNGGU</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Tambahkan Lightbox CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+        }
+
+        .gallery-container {
+            padding: 2rem 0;
+        }
+
+        .gallery-filter {
+            margin-bottom: 2rem;
+        }
+
+        .filter-button {
+            background: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+            padding: 8px 20px;
+            margin: 5px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-button:hover,
+        .filter-button.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .gallery-item {
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 15px;
+            transition: bottom 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            bottom: 0;
+        }
+
+        .gallery-title {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .gallery-date {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Animasi Loading */
+        .loading-animation {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--secondary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .gallery-filter {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .filter-button {
+                margin: 5px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (sama seperti index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2c3e50;">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png" alt="Logo" height="50">
+                SMA N 1 ONANRUNGGU
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="galeri.html">Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-5 text-center">
+        <div class="container">
+            <h1 class="display-4 mb-4">Galeri Sekolah</h1>
+            <p class="lead mb-0">Dokumentasi kegiatan dan prestasi SMA N 1 ONANRUNGGU</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-container">
+        <div class="container">
+            <!-- Filter Buttons -->
+            <div class="gallery-filter text-center">
+                <button class="filter-button active" data-filter="all">Semua</button>
+                <button class="filter-button" data-filter="akademik">Akademik</button>
+                <button class="filter-button" data-filter="ekstrakurikuler">Ekstrakurikuler</button>
+                <button class="filter-button" data-filter="prestasi">Prestasi</button>
+                <button class="filter-button" data-filter="fasilitas">Fasilitas</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="row" id="gallery-grid">
+                <!-- Akademik -->
+                <div class="col-md-4 col-sm-6 gallery-item-wrapper" data-category="akademik">
+                    <div class="gallery-item">
+                        <a href="images/akademik1.jpg" data-lightbox="gallery" data-title="Kegiatan Pembelajaran">
+                            <img src="images/akademik1.jpg" alt="Kegiatan Pembelajaran">
+                            <div class="gallery-overlay">
+                                <h5 class="gallery-title">Kegiatan Pembelajaran</h5>
+                                <p class="gallery-date">20 November 2023</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ekstrakurikuler -->
+                <div class="col-md-4 col-sm-6 gallery-item-wrapper" data-category="ekstrakurikuler">
+                    <div class="gallery-item">
+                        <a href="images/ekskul1.jpg" data-lightbox="gallery" data-title="Latihan Paskibra">
+                            <img src="images/ekskul1.jpg" alt="Latihan Paskibra">
+                            <div class="gallery-overlay">
+                                <h5 class="gallery-title">Latihan Paskibra</h5>
+                                <p class="gallery-date">15 November 2023</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Prestasi -->
+                <div class="col-md-4 col-sm-6 gallery-item-wrapper" data-category="prestasi">
+                    <div class="gallery-item">
+                        <a href="images/prestasi1.jpg" data-lightbox="gallery" data-title="Juara Olimpiade Sains">
+                            <img src="images/prestasi1.jpg" alt="Juara Olimpiade Sains">
+                            <div class="gallery-overlay">
+                                <h5 class="gallery-title">Juara Olimpiade Sains</h5>
+                                <p class="gallery-date">10 November 2023</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tambahkan item galeri lainnya sesuai kebutuhan -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-4">
+                <button id="load-more" class="btn btn-primary">Muat Lebih Banyak</button>
+                <div class="loading-animation d-none"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>SMA N 1 ONANRUNGGU</h5>
+                    <p>Jl. Sisingamangaraja, Onanrunggu, Samosir</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5>Ikuti Kami</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2023 SMA N 1 ONANRUNGGU. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script>
+        // Filter Gallery
+        document.querySelectorAll('.filter-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                const filterValue = this.getAttribute('data-filter');
+                const items = document.querySelectorAll('.gallery-item-wrapper');
+
+                items.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Load More Functionality
+        const loadMoreBtn = document.getElementById('load-more');
+        const loadingAnimation = document.querySelector('.loading-animation');
+
+        loadMoreBtn.addEventListener('click', function() {
+            // Show loading animation
+            loadMoreBtn.style.display = 'none';
+            loadingAnimation.classList.remove('d-none');
+
+            // Simulate loading new images (replace with actual API call)
+            setTimeout(() => {
+                // Hide loading animation
+                loadingAnimation.classList.add('d-none');
+                loadMoreBtn.style.display = 'inline-block';
+
+                // Add new gallery items here
+                // This is where you would normally append new items from your backend
+            }, 1500);
+        });
+
+        // Initialize Lightbox
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true
+        });
+    </script>
+</body>
+</html>

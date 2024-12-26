@@ -1,0 +1,21 @@
+.nav-tabs .nav-link {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--secondary-color);
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+.tab-content {
+    padding: 2rem 0;
+}
+
+.card {
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
